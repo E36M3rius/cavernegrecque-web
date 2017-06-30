@@ -1,0 +1,112 @@
+<body class="home page page-id-9 page-template page-template-t-page-php">
+<?php include(VIEW_PATH.PLATFORM."/widgets/menu_mobile.phtml"); ?>
+<div id="wrapper">
+  <div id="header-bg"></div>
+<div class="container">
+<div class="row">
+<?php include(VIEW_PATH.PLATFORM."/widgets/sidebar.phtml"); ?>
+  <div id="main-content">
+    <div id="inner-content">
+    <h1 class="page-title"> Reservations </h1>
+        <hr class="headings">
+        <div align="center">
+        <div class="slider-wrapper theme-default">
+          <div class="ribbon"></div>
+        </div>
+ <!-- FORM -->
+<br/>
+<p>Please fill up the form or call our restaurant at 514-844-5114 in order to make a reservation.</p>
+<div id="form-wrapper">
+<!-- our error container -->
+<div class="message">
+<h4>There are errors with your form:</h4>
+<ol>
+    <li><label for="formname" class="error">Please enter your full name</label></li>
+    <li><label for="formphone" class="error">Please enter your phone number</label></li>
+    <li><label for="formemail" class="error">Please enter your email address</label></li>
+</ol>
+</div>
+
+<?php
+  if (isset($page_params['message'])) {
+    ?>
+    <p style="color:red"><?=$page_params['message']?></p>
+    <?php
+  }
+?>
+<form name="reservations" id="reso" action="<?=$page_params['site_url']?>contact/" method="post">
+ <div class="infoWrapper">
+  <div class="infoContent">
+
+    <input type="hidden" id="formname_default" value="Full Name" />
+    <input type="hidden" id="formphone_default" value="Phone" />
+
+   <input type="text" name="formname" id="formname" value="Full Name" onfocus="if(this.value=='Full Name')this.value='';" onblur="if(this.value=='')this.value='Full Name';" class="input-text full {validate:{required:true,minlength:3}}"  />
+
+  </div>
+ </div>
+
+
+ <div class="infoWrapper">
+    <div class="infoContent">
+      <input type="text" name="formphone" id="formphone" value="Phone" onfocus="if(this.value=='Phone')this.value='';" onblur="if(this.value=='')this.value='Phone';" class="input-text full {validate:{required:true,minlength:7}}"  />
+    </div>
+</div>
+
+ <div class="infoWrapper">
+  <div class="infoContent">
+   <input type="text" name="formemail" id="formemail" value="Email" onfocus="if(this.value=='Email')this.value='';" onblur="if(this.value=='')this.value='Email';" class="input-text full {validate:{required:true,email:true}}" />
+  </div>
+ </div>
+
+  <div class="infoWrapper">
+  <div class="infoContent">
+   <input type="text" name="number_people" id="number_people" value="# of persons" onfocus="if(this.value=='# of persons')this.value='';" onblur="if(this.value=='')this.value='# of persons';" class="input-text full {validate:{required:true,email:true}}" />
+  </div>
+ </div>
+  <div class="infoWrapper">
+  <div class="infoContent">
+
+
+  <input type="text" name="formemail" id="formemail" value="Hour"  onfocus="if(this.value=='# of persons')this.value='';" onblur="if(this.value=='')this.value='# of persons';" />
+  <input type="text" name="formemail" id="formemail" value="Minute"  onfocus="if(this.value=='# of persons')this.value='';" onblur="if(this.value=='')this.value='# of persons';" />
+
+|
+
+<?php
+$months = array('January','February','March','April','May','June','July','August','September','October','November','December');
+$currentMonth = date('n');
+
+?>
+<input type="text" name="formemail" id="formemail" value="Day"  onfocus="if(this.value=='# of persons')this.value='';" onblur="if(this.value=='')this.value='# of persons';" />
+
+<select name="month">
+  <?php
+    foreach($months as $key => $month) {
+      ?>
+      <option value="<?=$key+1?>"><?=$month?></option>
+      <?php
+    }
+  ?>
+
+</select>
+<input type="text" name="formemail" id="formemail" value="Month"  onfocus="if(this.value=='# of persons')this.value='';" onblur="if(this.value=='')this.value='# of persons';" />
+
+<input type="text" name="formemail" id="formemail" value="Year"  onfocus="if(this.value=='# of persons')this.value='';" onblur="if(this.value=='')this.value='# of persons';" />
+
+  </div>
+ </div>
+
+ <div class="infoWrapper">
+  <div class="infoTitle"></div>
+  <div class="infoContent">
+   <input type="submit" name="send" value="Send" class="sendbtn" />
+  </div>
+ </div>
+
+</form>
+</div>
+<!-- /FORM -->
+        </div>
+    </div>
+

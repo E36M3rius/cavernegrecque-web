@@ -1,0 +1,11 @@
+Add to location ~ \.php$ block:
+
+try_files $uri =403;
+fastcgi_split_path_info ^(.+.php)(.*)$;
+
+location / {
+	if ( $uri !~ ^/(index\.php|css|images|core|uploads|js|robots\.txt|favicon\.ico) ) {
+		rewrite ^ /server/index.php last;
+	}
+}
+

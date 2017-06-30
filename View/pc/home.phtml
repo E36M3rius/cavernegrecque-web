@@ -1,0 +1,52 @@
+<body class="home page page-id-9 page-template page-template-t-page-php">
+<?php include(VIEW_PATH.PLATFORM."/widgets/menu_mobile.phtml"); ?>
+<div id="wrapper">
+	<div id="header-bg"></div>
+<div class="container">
+<div class="row">
+<?php include(VIEW_PATH.PLATFORM."/widgets/sidebar.phtml"); ?>
+	<div id="main-content">
+		<div id="inner-content">
+				<h1 class="page-title">La Caverne Grecque</h1>
+				<hr class="headings">
+				<div align="center">
+				<script type='text/javascript' src='<?=$page_params['static_url']?>js/nivo-slider/jquery.nivo.slider.js'></script>
+<div class="slider-wrapper theme-default">
+					<div class="ribbon"></div>
+					<?php if (isset($page_params['slider_images']) && count($page_params['slider_images'])) {
+						?> <div id="slider" class="nivoSlider"  style="max-width:656pxpx"> <?php
+						foreach ($page_params['slider_images'] as $imageName) {
+							?> <img src='<?=$page_params['static_url']?>images/album/<?=$imageName?>.jpg' width='656px'  alt='' title='' data-transition='fade' /> <?php
+						}
+						?> </div> <?php
+					}?>
+</div>
+				</div>
+				<h5 style="margin-bottom: 20px; text-align: center;">La Caverne Grecque is a famous name in restaurants specializing in traditional Greek cuisine.</h5>
+				<p style="text-align:center;"><a href="menu/dinner/"  class="flatbutton blue"><span > View our Menu </span></a></p>
+
+				<script type='text/javascript' src='<?=$page_params['static_url']?>js/prettyphoto/jquery.prettyPhoto.js'></script>
+<script type='text/javascript' src='<?=$page_params['static_url']?>js/prettyphoto/jquery.prettyPhoto.settings.js'></script>
+<div class="ruler"  style="padding-top:10px;margin-bottom:30px;margin-left:0px;margin-right:0px"></div>
+
+<div><h4><?=$page_params['special_type']?></h4>
+<menu style="width:500px">
+<?php
+if (is_array($page_params['specials']) && $count = count($page_params['specials'])) {
+	foreach($page_params['specials'] as $plate) {
+		?>
+		<br/>
+		<menuTitle><?=$plate['name']?></menuTitle>
+		<menuPrice><?=number_format($plate['price'], 2)?>$</menuPrice>
+		<!-- <br/><br/> -->
+		<br/>
+		<?php
+	}
+}
+?>
+</menu>
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	</div>
+</div>
